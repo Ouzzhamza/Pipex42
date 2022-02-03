@@ -57,4 +57,38 @@ int main(int argc, char *argv[])
   
   ```
   
+  ```
+  ──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a.out  exemple.c  Pipex
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out a b c d
+The file doesn't exist
+The file doesn't exist
+The file doesn't exist
+The file doesn't exist
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ touch a b c d  
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a  a.out  b  c  d  exemple.c  Pipex
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out a b c d
+The file unlinked
+The file unlinked
+The file unlinked
+The file unlinked
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a.out  exemple.c  Pipex
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ 
+```
+  
  
