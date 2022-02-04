@@ -91,5 +91,12 @@ pid_t  fork ( void );
 ```
 Create a child process from the current running one "parent process", withe the exact same since.
 The only difference between the parent process and the child process is the assigned value: it returns 0 for the child process, a non-zero number for the parent process.
+
+### wait()
+Prototype : 
+``` 
+pid_t  wait ( int  * status );
+```
+Suspend the execution of the main process untill all of the sub_processes created by **fork()** terminates
   
  
