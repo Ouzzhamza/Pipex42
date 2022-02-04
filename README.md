@@ -131,9 +131,19 @@ int main(int argc, char *argv[])
 	return(0);
 }
 ```
-
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ gcc exemple.c
+                                                                                
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out        
+6 7 8 9 10 1 2 3 4 5  
 ```
 
-
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ gcc exemple.c
+                                                                                
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out      
+1 2 3 4 5 6 7 8 9 10  
   
  
