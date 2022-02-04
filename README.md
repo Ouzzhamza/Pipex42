@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
 └─$ ./a.out        
 6 7 8 9 10 1 2 3 4 5  
 ```
-
+with wait();
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ gcc exemple.c
                                                                                 
