@@ -192,6 +192,13 @@ pid_t  waitpid(pid_t pid, int *stat_loc, int options);
 
 Waitpid() waits for a specific child equal to pid (given as paranmetre) to terminate.
 
+### dup()
+
+Prototype : 
+```
+ int dup(int fildes);
+```
+
 
   
  
