@@ -29,9 +29,9 @@ This programme will be written in C language, using the following functions :
   ```
   The function deletes the given file as **pathe** by breaking the hard link 
   
-  #### exemple 
+  ####  -exemple 
   ```
-  #include	<stdio.h>
+#include	<stdio.h>
 #include	<unistd.h>
 int main(int argc, char *argv[])
 {
@@ -53,12 +53,9 @@ int main(int argc, char *argv[])
 	}
 	return(0);
 }
-
-  
   ```
-  
-  ```
-  ──(cyber-z3ter㉿kali)-[~/Desktop]
+```
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
 a.out  exemple.c  Pipex
                                                                                                                                                                                                                                               
@@ -86,9 +83,13 @@ The file unlinked
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
 a.out  exemple.c  Pipex
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ 
 ```
+### fork()
+Prototype :
+```
+pid_t  fork ( void );
+```
+Create a child process from the current running one "parent process", withe the exact same since.
+The only difference between the parent process and the child process is the assigned value: it returns 0 for the child process, a non-zero number for the parent process.
   
  
