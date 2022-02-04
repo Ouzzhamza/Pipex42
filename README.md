@@ -131,19 +131,67 @@ int main(int argc, char *argv[])
 	return(0);
 }
 ```
+
+```
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ gcc exemple.c
                                                                                 
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ./a.out        
 6 7 8 9 10 1 2 3 4 5  
+
 ```
+
 with wait();
+
+```
+#include	<stdio.h>
+#include	<unistd.h>
+#include	<sys/wait.h>
+int main(int argc, char *argv[])
+{
+	int id = fork();
+	int n;
+	if(id  == 0)
+	{
+		n = 1;
+	}
+	else
+	{
+		n = 6;
+	}
+		 if(id != 0)
+		 {
+		     wait(NULL);
+		 }
+	int i;
+	for(i = n; i < n + 5; i++)
+	{
+		printf("%d ", i);
+	}
+	return(0);
+}
+```
+
+```
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ gcc exemple.c
                                                                                 
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ./a.out      
-1 2 3 4 5 6 7 8 9 10  
+1 2 3 4 5 6 7 8 9 10
+
+```
+
+### waitpid()
+
+Prototype : 
+``` 
+pid_t  waitpid(pid_t pid, int *stat_loc, int options);
+```
+
+Waitpid() waits for a specific child equal to pid (given as paranmetre) to terminate.
+
+
   
  
