@@ -7,90 +7,13 @@ This programme will be written in C language, using the following functions :
 
 ## Description 
 
-### access()
-  Prototype :
-  ```
-  access(const char *path, int mode);
-  ```
-  The function checks the file corresponding to the **path** following to the given **mode** 
-  
-  **F__OK** Existence of the file.
-  
-  **X_OK** Execute permission.
-  
-  **W_OK** Write permission.
-  
-  **R_OK** Read permission.
-  
-  ### unlink()
-  Prototype : 
-  ```
-  int  unlink ( const  char  * path );
-  ```
-  The function deletes the given file as **pathe** by breaking the hard link 
-  
-  ####  -exemple 
-  ```
-#include	<stdio.h>
-#include	<unistd.h>
-int main(int argc, char *argv[])
-{
-	int i = 1;
-	while(i < argc)
-	{
-		if(access(argv[i], F_OK) == 0) // checks the file if it exist
-		{
-			if(unlink(argv[i]) == 0)
-			{
-				printf("The file unlinked\n");
-			}
-			else
-				printf("The file still linked\n");
-		}
-		else
-			printf("The file doesn't exist\n");
-		i++;
-	}
-	return(0);
-}
-  ```
-```
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ls             
-a.out  exemple.c  Pipex
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ./a.out a b c d
-The file doesn't exist
-The file doesn't exist
-The file doesn't exist
-The file doesn't exist
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ touch a b c d  
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ls             
-a  a.out  b  c  d  exemple.c  Pipex
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ./a.out a b c d
-The file unlinked
-The file unlinked
-The file unlinked
-The file unlinked
-                                                                                                                                                                                                                                              
-┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ls             
-a.out  exemple.c  Pipex
-```
 ### fork()
 Prototype :
 ```
 pid_t  fork ( void );
 ```
 Create a child process from the current running one "parent process", withe the exact same since.
-The only difference between the parent process and the child process is the assigned value: it returns 0 for the child process, a non-zero number for the parent process.
+The only difference between the parent process and the child process is the assigned value: it returns 0 to the child process, a child [PID](https://en.wikipedia.org/wiki/Process_identifier#:~:text=In%20computing%2C%20the%20process%20identifier,uniquely%20identify%20an%20active%20process.) to the parent porcess, or -1 to the parent process in case of an error.
 
 ### wait()
 Prototype : 
@@ -192,11 +115,101 @@ pid_t  waitpid(pid_t pid, int *stat_loc, int options);
 
 Waitpid() waits for a specific child equal to pid (given as paranmetre) to terminate.
 
-### dup()
+### pipe()
+  Prototype :
+  ```
+  int pipe(int fildes[2]);
+  ```
+  
+  
+  
+
+### access()
+  Prototype :
+  ```
+  access(const char *path, int mode);
+  ```
+  The function checks the file corresponding to the **path** following to the given **mode** 
+  
+  **F__OK** Existence of the file.
+  
+  **X_OK** Execute permission.
+  
+  **W_OK** Write permission.
+  
+  **R_OK** Read permission.
+  
+  ### unlink()
+  Prototype : 
+  ```
+  int  unlink ( const  char  * path );
+  ```
+  The function deletes the given file as **pathe** by breaking the hard link 
+  
+  ####  -exemple 
+  ```
+#include	<stdio.h>
+#include	<unistd.h>
+int main(int argc, char *argv[])
+{
+	int i = 1;
+	while(i < argc)
+	{
+		if(access(argv[i], F_OK) == 0) // checks the file if it exist
+		{
+			if(unlink(argv[i]) == 0)
+			{
+				printf("The file unlinked\n");
+			}
+			else
+				printf("The file still linked\n");
+		}
+		else
+			printf("The file doesn't exist\n");
+		i++;
+	}
+	return(0);
+}
+  ```
+```
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a.out  exemple.c  Pipex
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out a b c d
+The file doesn't exist
+The file doesn't exist
+The file doesn't exist
+The file doesn't exist
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ touch a b c d  
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a  a.out  b  c  d  exemple.c  Pipex
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ./a.out a b c d
+The file unlinked
+The file unlinked
+The file unlinked
+The file unlinked
+                                                                                                                                                                                                                                              
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ ls             
+a.out  exemple.c  Pipex
+```
+
+
+
+### dup() and dup2()
 
 Prototype : 
 ```
  int dup(int fildes);
+ int dup2( int oldfd, int targetfd ); 
 ```
 
 
