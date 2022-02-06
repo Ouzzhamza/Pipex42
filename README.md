@@ -9,7 +9,7 @@ This programme will be written in C language, using the following functions :
 
 ### fork()
 Prototype :
-```
+```c
 pid_t  fork ( void );
 ```
 Create a child process from the current running one "parent process", withe the exact same since.
@@ -17,7 +17,7 @@ The only difference between the parent process and the child process is the assi
 
 ### wait()
 Prototype : 
-``` 
+```c
 pid_t  wait ( int  * status );
 ```
 Suspend the execution of the main process until all of the sub_processes(child process) created by **fork()** terminates.
@@ -26,7 +26,7 @@ in case there is no child process the function returns **-1**, if the child proc
 ####  -exemple 
 without wait();
 
-```
+```c
 #include	<stdio.h>
 #include	<unistd.h>
 #include	<sys/wait.h>
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```
+```c
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ gcc exemple.c
                                                                                 
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 
 with wait();
 
-```
+```c
 #include	<stdio.h>
 #include	<unistd.h>
 #include	<sys/wait.h>
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```
+```c
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ gcc exemple.c
                                                                                 
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 ### waitpid()
 
 Prototype : 
-``` 
+```c
 pid_t  waitpid(pid_t pid, int *stat_loc, int options);
 ```
 
@@ -117,7 +117,7 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
 
 ### pipe()
   Prototype :
-  ```
+  ```c
   int pipe(int fildes[2]);
   ```
   Ensure the communication between processes, or in some cases with itself. and all of this is possible thank's to the two files descriptor stored by the **pipe** function 
@@ -126,7 +126,7 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
 
 ### access()
   Prototype :
-  ```
+  ```c
   access(const char *path, int mode);
   ```
   The function checks the file corresponding to the **path** following to the given **mode** 
@@ -141,13 +141,13 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
   
   ### unlink()
   Prototype : 
-  ```
+  ```c
   int  unlink ( const  char  * path );
   ```
   The function deletes the given file as **pathe** by breaking the hard link 
   
   ####  -exemple 
-  ```
+  ```c
 #include	<stdio.h>
 #include	<unistd.h>
 int main(int argc, char *argv[])
@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
 	return(0);
 }
   ```
-```
+```c
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
 a.out  exemple.c  Pipex
@@ -207,7 +207,7 @@ a.out  exemple.c  Pipex
 ### dup() and dup2()
 
 Prototype : 
-```
+```c
  int dup(int fildes);
  int dup2( int oldfd, int targetfd ); 
 ```
