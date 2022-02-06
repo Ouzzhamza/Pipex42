@@ -120,7 +120,7 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
   ```
   int pipe(int fildes[2]);
   ```
-  
+  Ensure the communication between processes, or in some cases with itself. and all of this is possible thank's to the two files descriptor stored by the **pipe** function 
   
   
 
