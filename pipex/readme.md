@@ -7,7 +7,7 @@ This programme will be written in C language, using the following functions :
 
 ## Description 
 
-### fork()
+### fork( )
 Prototype :
 ```c
 pid_t  fork ( void );
@@ -15,16 +15,15 @@ pid_t  fork ( void );
 Create a child process from the current running one "parent process", withe the exact same since.
 The only difference between the parent process and the child process is the assigned value: it returns 0 to the child process, a child [PID](https://en.wikipedia.org/wiki/Process_identifier#:~:text=In%20computing%2C%20the%20process%20identifier,uniquely%20identify%20an%20active%20process.) to the parent porcess, or -1 to the parent process in case of an error.
 
-### wait()
+### [wait( )](https://www.ibm.com/docs/en/zos/2.2.0?topic=functions-wait-wait-child-process-end)
 Prototype : 
 ```c
 pid_t  wait ( int  * status );
 ```
-Suspend the execution of the main process until all of the sub_processes(child process) created by **fork()** terminates.
-in case there is no child process the function returns **-1**, if the child process exists but not terminated or stopped it returns **0**, and returns the pid of the child process terminated on success.
+Suspend the execution of the main process until it recives informations (stored in stat_loc) about the child process created by **fork( )**, when it's terminates.
 
   ####  ->  exemple 
-without wait();
+without wait( );
 
 ```c
 #include	<stdio.h>
@@ -61,7 +60,7 @@ int main(int argc, char *argv[])
 
 ```
 
-with wait();
+with wait( );
 
 ```c
 #include	<stdio.h>
@@ -106,7 +105,7 @@ int main(int argc, char *argv[])
 
 ```
 
-### waitpid()
+### [waitpid( )](https://techaccess.in/2021/05/07/wait-and-waitpid-api/#:~:text=Difference%20between%20wait%20and%20waitpid()%3A&text=Wait()%20waits%20for%20any,terminated%20or%20a%20signaled%20child.)
 
 Prototype : 
 ```c
@@ -159,7 +158,7 @@ int main(int argc, char *av[])
 
 ```
 
-### access()
+### access( )
   Prototype :
   ```c
   access(const char *path, int mode);
@@ -174,7 +173,7 @@ int main(int argc, char *av[])
   
   **R_OK** Read permission.
   
-  ### unlink()
+  ### unlink( )
   Prototype : 
   ```c
   int  unlink ( const  char  * path );
@@ -182,7 +181,7 @@ int main(int argc, char *av[])
   The function deletes the given file as **pathe** by breaking the hard link 
   
   ####  ->  exemple 
-  ```c
+```c
 #include	<stdio.h>
 #include	<unistd.h>
 int main(int argc, char *argv[])
@@ -205,7 +204,7 @@ int main(int argc, char *argv[])
 	}
 	return(0);
 }
-  ```
+```
 ```c
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
@@ -239,13 +238,27 @@ a.out  exemple.c  Pipex
 
 
 
-### dup() and dup2()
+### dup( ) and dup2( )
 
 Prototype : 
 ```c
  int dup(int fildes);
  int dup2( int oldfd, int targetfd ); 
 ```
+
+The **dup** function duplicates a file descriptor, so as a result we get two **file descriptors** point to the same exact **file**.
+the new file descriptor value is the smallest non-negative integer index in the per-process descriptor table
+
+![picture](../pictures/dup.jpg)
+
+
+The **dup2** does the same as **dup**, but the dirrenece is the value of the new file descriptor is specified
+
+
+
+
+
+
 
 
   
