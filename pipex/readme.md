@@ -22,7 +22,7 @@ pid_t  wait ( int  * status );
 ```
 Suspend the execution of the main process until it recives informations (stored in stat_loc) about the child process created by **fork( )**, when it's terminates.
 
-  ####  ->  exemple 
+  ####  >  exemple 
 without wait( );
 
 ```c
@@ -121,7 +121,9 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
   ```
   Ensure the communication between processes, or in some cases with the process itself. Thank's to the two pipe ends  **fildes[0]** who is used for reading from the pipe, and **fildes[1]** who is used for writing to the pipe.
   
-  ####  ->  exemple 
+  ####  >  exemple
+
+We sill send the string "Hello from file1" from one file1 to file2 using **pipe**
 ```c
 #include	<stdio.h>
 #include	<unistd.h>
@@ -131,7 +133,7 @@ Waitpid() waits for a specific child equal to pid (given as paranmetre) to termi
 int main(int argc, char *av[])
 {
 	int fd[2];
-	char *file1 = "hello from file1";
+	char *file1 = "Hello from file1";
 	char file2[17];
 	
  	if(pipe(fd) == -1)
@@ -155,6 +157,12 @@ int main(int argc, char *av[])
 	}
 	return(0);
 }
+```
+
+```
+┌──(cyber-z3ter㉿kali)-[~/Desktop]
+└─$ gcc exemple.c && ./a.out
+Hello from file1
 
 ```
 
@@ -180,7 +188,7 @@ int main(int argc, char *av[])
   ```
   The function deletes the given file as **pathe** by breaking the hard link 
   
-  ####  ->  exemple 
+  ####  >  exemple 
 ```c
 #include	<stdio.h>
 #include	<unistd.h>
@@ -211,26 +219,26 @@ int main(int argc, char *argv[])
 a.out  exemple.c  Pipex
                                                                                                                                                                                                                                               
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ./a.out a b c d
+└─$ gcc exemple.c && ./a.out a b c d
 The file doesn't exist
 The file doesn't exist
 The file doesn't exist
 The file doesn't exist
-                                                                                                                                                                                                                                              
+
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ touch a b c d  
-                                                                                                                                                                                                                                              
+
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
 a  a.out  b  c  d  exemple.c  Pipex
-                                                                                                                                                                                                                                              
+                                                                             
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
-└─$ ./a.out a b c d
+└─$ gcc exemple.c && ./a.out  a b c d
 The file unlinked
 The file unlinked
 The file unlinked
 The file unlinked
-                                                                                                                                                                                                                                              
+                                                                              
 ┌──(cyber-z3ter㉿kali)-[~/Desktop]
 └─$ ls             
 a.out  exemple.c  Pipex
@@ -252,7 +260,19 @@ the new file descriptor value is the smallest non-negative integer index in the 
 ![picture](../pictures/dup.jpg)
 
 
-The **dup2** does the same as **dup**, but the dirrenece is the value of the new file descriptor is specified
+The **dup2** does the same as **dup**, but the difference is that the value of the new file descriptor is specified.
+
+
+### execve( )
+
+Prototype :
+
+```c
+ int execve(const char *path, char *const argv[], char *const envp[]);
+ ```
+
+
+
 
 
 
