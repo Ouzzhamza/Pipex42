@@ -10,10 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdio.h>
-#include	<unistd.h>
-#include	<sys/wait.h>
-#include 	<fcntl.h>
+#include "pipex.h"
+
+void	pipex(file1, file2, av)
+{
+	pid_t id;
+	int end[2];
+
+	id = fork();
+
+	if(id < 0)
+		return("error");
+	if(id != 0)
+		parent_process(file1, cmd);
+	else
+		chield_process(file2, cmd)
+	return(0);
+}
 
 int main(int ac, char *av[])
 {
@@ -26,7 +39,8 @@ int main(int ac, char *av[])
 	file2 = open(av[4], O_RDWR | O_CREAT  , 0666);
 	if(file1 < 0 | file2 < 0)
 		return("error");
-	
+	ft_pipex(file1, file2, av);
+	return(0);
 }
 	
 
