@@ -271,6 +271,8 @@ Prototype :
  int execve(const char *path, char *const argv[], char *const envp[]);
  ```
 
+First thing to know is this function replace the calling process withe another one constructed from an ordinary file, whose name is pointed to by
+     path
 
 
 
