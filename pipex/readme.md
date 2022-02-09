@@ -263,7 +263,7 @@ the new file descriptor value is the smallest non-negative integer index in the 
 The **dup2** does the same as **dup**, but the difference is that the value of the new file descriptor is specified.
 
 
-### execve( )
+### [execve( )](https://medium.com/pragmatic-programmers/introducing-exec-3c9963375c98)
 
 Prototype :
 
@@ -271,8 +271,13 @@ Prototype :
  int execve(const char *path, char *const argv[], char *const envp[]);
  ```
 
-First thing to know is this function replace the calling process withe another one constructed from an ordinary file, whose name is pointed to by
-     path
+First thing to know is this function replace the calling process with another one constructed by the parametrse below.
+
+ > const char *path : the pathname of the command to execute.
+
+ > char *const argv[ ] :  a null-terminated array of character pointers to null-terminated character strings of arguments to pass to the new process.
+
+ >char *const envp[ ] : Structured the same way as (char *const argv[ ]) but instead of an argument list, it holds a list of environment set for running the new program.
 
 
 
