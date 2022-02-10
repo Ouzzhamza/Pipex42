@@ -12,8 +12,11 @@
 
 #include "pipex.h"
 
-void	pipex(file1, file2, av)
+
+void	pipex(file1, file2, av, t_data *pipex)
 {
+	*pipex.path;
+
 	pid_t id;
 	int end[2];
 
@@ -24,23 +27,28 @@ void	pipex(file1, file2, av)
 	if(id != 0)
 		parent_process(file1, cmd);
 	else
-		chield_process(file2, cmd)
+		chield_process(file2, cmd);
 	return(0);
 }
 
-int main(int ac, char *av[])
+int main(int ac, char *av[], char *envp[])
 {
-	int file1;
-	int file2;
+	t_data *pipex;
+
+	if(ac != 5)
+		return("insufisant number of argument");	
+	pipex->file1;
+	pipex->file2;
 	int fd[2];
-	if(pip(fd) == -1)
+	if(pip(pipex->pend) == -1)
 		return("error");
-	file1 = open(av[1], O_RDONLY);
-	file2 = open(av[4], O_RDWR | O_CREAT  , 0666);
-	if(file1 < 0 | file2 < 0)
+	pipex->file1 = open(av[1], O_RDONLY);
+	pipex->file2 = open(av[4], O_RDWR | O_CREAT  , 0666);
+	if(pipex->file1 < 0 | pipex->file2 < 0)
 		return("error");
-	ft_pipex(file1, file2, av);
+	ft_pipex(pipex->file2, pipex->file1, av, envp, pipex);
 	return(0);
+	}
 }
 	
 

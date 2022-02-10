@@ -9,4 +9,16 @@
 # include 	<fcntl.h>
 
 
+
+typedef struct s_data
+{
+    int file1;
+    int file2;
+    int pend;
+    char *path;
+
+}   t_data;
+
+
+
 # endif
