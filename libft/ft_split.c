@@ -9,7 +9,7 @@
 /*   Updated: 2021/11/21 02:53:42 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../pipex/pipex.h"
+#include "libft.h"
 
 int	ft_wor(char *r_s, char c, size_t size)
 {

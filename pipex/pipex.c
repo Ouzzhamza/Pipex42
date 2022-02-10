@@ -13,42 +13,57 @@
 #include "pipex.h"
 
 
-void	pipex(file1, file2, av, t_data *pipex)
+// void	pipex(char *av[], char *envp[], t_data pipex)
+// {
+	
+// 	pipex.path = 	
+// 	pid_t id;
+// 	int end[2];
+
+// 	id = fork();
+
+// 	if(id < 0)
+// 		return("error");
+// 	if(id != 0)
+// 		parent_process(file1, cmd);
+// 	else
+// 		chield_process(file2, cmd);
+// 	return(0);
+// }
+
+char *find_path(char **envp)
 {
-	*pipex.path;
-
-	pid_t id;
-	int end[2];
-
-	id = fork();
-
-	if(id < 0)
-		return("error");
-	if(id != 0)
-		parent_process(file1, cmd);
-	else
-		chield_process(file2, cmd);
-	return(0);
+	while (ft_strncmp("PATH", *envp, 4))
+		envp++;
+	return(*envp);
 }
 
-int main(int ac, char *av[], char *envp[])
+void	ft_error(void)
+{
+	perror("warning ");
+	exit(0);
+}
+
+int main(int ac, char *av[], char **envp)
 {
 	t_data *pipex;
 
+	pipex = (t_data *) malloc(sizeof(t_data));
 	if(ac != 5)
-		return("insufisant number of argument");	
-	pipex->file1;
-	pipex->file2;
-	int fd[2];
-	if(pip(pipex->pend) == -1)
-		return("error");
-	pipex->file1 = open(av[1], O_RDONLY);
-	pipex->file2 = open(av[4], O_RDWR | O_CREAT  , 0666);
-	if(pipex->file1 < 0 | pipex->file2 < 0)
-		return("error");
-	ft_pipex(pipex->file2, pipex->file1, av, envp, pipex);
-	return(0);
+		ft_error();
+	if(pipe(pipex->fd) == -1)
+		ft_error();
+	if(av[1] != NULL)
+	{
+		pipex->file1 = open(av[1], O_CREAT, 0666);
+		pipex->file2 = open(av[4], O_CREAT, 0666);
+		if(pipex->file1 < 0 | pipex->file2 < 0)
+			ft_error();
+		pipex->path = find_path(envp);
+		
+		//ft_pipex(av, pipex);
 	}
+	return(0);
 }
 	
 
