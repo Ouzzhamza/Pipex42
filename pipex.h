@@ -16,11 +16,13 @@
 
 typedef struct s_data
 {
-    int file1;
-    int file2;
-    int fd[2];
+    int infile;
+    int outfile;
+    int end[2];
     char *path;
-    char **command;
+    char *cmd;
+    char **cmd_args;
+    char **cmd_path;
 
 }   t_data;
 
@@ -28,24 +30,27 @@ typedef struct s_data
 /*                   The main file                      */
 /* **************************************************** */
 
-int main(int ac, char *av[], char *envp[]);
-
+int     main(int ac, char *av[], char *envp[]);
+void    *path_handling(t_data *pipex, char **envp);
 
 
 /* **************************************************** */
 /*                   Functions                          */
 /* **************************************************** */
- int     ft_strncmp(const char *s1, const char *s2, size_t n);
- char	*ft_strdup(const char *src);
- void	ft_putstr_fd(char *s, int fd);
- void	ft_error(void);
+ int    ft_strncmp(const char *s1, const char *s2, size_t n);
+ char	*ft_strjoin(char const *s1, char const *s2);
+ char	**ft_split(char const *s, char c);
+ void   ft_putstr_fd(char *s, int fd);
+ char   *ft_strdup(const char *src);
+ void   ft_error(void);
 
 
 /* **************************************************** */
 /*                   The child file                     */
 /* **************************************************** */
 
-void child_process(t_data *pipex, char *av[]);
+void child_process1(t_data *pipex, char *av[], char **envp);
+void child_process2(t_data *pipex, char *av[], char **envp);
 
 
 

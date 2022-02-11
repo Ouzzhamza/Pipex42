@@ -1,9 +1,0 @@
-https://stackoverflow.com/questions/21248840/example-of-waitpid-in-use
-https://bigpel66.oopy.io/library/42/inner-circle/8#15a189b7edb849f7900df137905156a8
-https://techaccess.in/2021/05/07/wait-and-waitpid-api/#:~:text=Difference%20between%20wait%20and%20waitpid()%3A&text=Wait()%20waits%20for%20any,terminated%20or%20a%20signaled%20child.
-https://stackoverflow.com/questions/1720535/practical-examples-use-dup-or-dup2
-https://blog.birost.com/a?ID=00250-4473e104-d9d5-48df-b7bf-be97b41a0e54
-https://stackoverflow.com/questions/1720535/practical-examples-use-dup-or-dup2#:~:text=%40nshy%3A%20You%20can%20use%20regular,risk%20overwriting%20an%20existing%20descriptor.
-https://linuxhint.com/using_pipe_function_c_language/
-https://www.geeksforgeeks.org/exit-status-child-process-linux/
-

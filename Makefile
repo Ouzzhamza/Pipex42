@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -Imlx -Ofast
 
 NAME = pipex
 
-SRC = pipex.c child_process.c parent_process.c
+SRC = pipex.c childs_process.c 
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -22,8 +22,8 @@ $(NAME) : $(OBJ)
 bonus : all
 
 clean :
-	@make fclean -C ../libft
-	@rm -rf $(OBJ)
+	@make fclean -C ../libft 
+	@rm -rf $(OBJ)  outfile
 
 fclean : clean
 	@rm -rf $(NAME)
