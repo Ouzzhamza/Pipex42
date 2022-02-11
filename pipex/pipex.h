@@ -20,11 +20,12 @@ typedef struct s_data
     int file2;
     int fd[2];
     char *path;
+    char **command;
 
 }   t_data;
 
 /* **************************************************** */
-/*                   The main star                      */
+/*                   The main file                      */
 /* **************************************************** */
 
 int main(int ac, char *av[], char *envp[]);
@@ -36,9 +37,15 @@ int main(int ac, char *av[], char *envp[]);
 /* **************************************************** */
  int     ft_strncmp(const char *s1, const char *s2, size_t n);
  char	*ft_strdup(const char *src);
+ void	ft_putstr_fd(char *s, int fd);
+ void	ft_error(void);
 
 
-// char	**ft_split(char const *s, char c);
+/* **************************************************** */
+/*                   The child file                     */
+/* **************************************************** */
+
+void child_process(t_data *pipex, char *av[]);
 
 
 

@@ -260,7 +260,10 @@ the new file descriptor value is the smallest non-negative integer index in the 
 ![picture](../pictures/dup.jpg)
 
 
-The **dup2** does the same as **dup**, but the difference is that the value of the new file descriptor is specified.
+The **dup2** does the same as **dup**, but the difference is that the value of the new file descriptor **oldfd** is specified.
+
+
+In case of an error the two functions return -1.
 
 
 ### [execve( )](https://medium.com/pragmatic-programmers/introducing-exec-3c9963375c98)

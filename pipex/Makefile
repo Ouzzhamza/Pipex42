@@ -2,7 +2,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -Imlx -Ofast
 
-NAME = Pipex
+NAME = pipex
 
 SRC = pipex.c child_process.c parent_process.c
 
