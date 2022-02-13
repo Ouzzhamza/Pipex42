@@ -3,8 +3,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-SRC	= ft_strlen.c ft_strlcpy.c  ft_strncmp.c ft_strjoin.c ft_split.c \
-		ft_strdup.c ft_calloc.c ft_substr.c  ft_putstr_fd.c \
+SRC	= ft_strlen.c ft_strncmp.c ft_strjoin.c ft_split.c ft_strchr.c ft_putstr_fd.c\
+		ft_strdup.c  ft_substr.c  ft_calloc.c ft_bzero.c\
 
 
 AR  	= ar rcs

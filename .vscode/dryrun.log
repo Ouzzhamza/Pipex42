@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/houazzan/Desktop/Pipex'
+make: Nothing to be done for `all'.
+make: Leaving directory `/Users/houazzan/Desktop/Pipex'
+ 

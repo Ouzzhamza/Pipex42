@@ -12,35 +12,21 @@
 
 #include "pipex.h"
 
-
-// void	pipex(char *av[], char *envp[], t_data pipex)
-// {
-	
-// 	pipex.path = 	
-// 	pid_t id;
-// 	int end[2];
-
-// 	id = fork();
-
-// 	if(id < 0)
-// 		return("error");
-// 	if(id != 0)
-// 		parent_process(infile, cmd);
-// 	else
-// 		chield_process(outfile, cmd);
-// 	return(0);
-// }
-
 /* **************************************************** */
 /*                     The error                        */
 /* **************************************************** */
 
-void	ft_error(void)
+void	ft_error(char *str)
 {
-	perror("warning ");
-	exit(0);
+	perror(str);
+	exit(1);
 }
 
+int err_msg(char *str)
+{
+	ft_putstr_fd(str, 2);
+	return(1);
+}
 
 /* **************************************************** */
 /*                      The main                        */
@@ -52,13 +38,17 @@ int main(int ac, char *av[], char **envp)
 
 	pipex = (t_data *) malloc(sizeof(t_data));
 	if(ac != 5)
-		ft_error();
+		return (err_msg(NUMBER));
 	if(pipe(pipex->end) == -1)
-		ft_error();
+		ft_error(PIPE);
 	pipex->infile = open(av[1], O_RDWR);  // in case o f the first file doesn't exist i should return error 
 	pipex->outfile = open(av[4], O_RDWR |O_CREAT, 0666);
 	if(pipex->infile < 0 | pipex->outfile < 0)
-		ft_error();
+		ft_error(FILE);
+	while (ft_strncmp("PATH", *envp, 4))
+		envp++;
+	pipex->path = (*envp + 5);
+	pipex->cmd_path = ft_split(pipex->path, ':');
 	id = fork();
 	if (id == 0)
 		child_process1(pipex, av, envp);

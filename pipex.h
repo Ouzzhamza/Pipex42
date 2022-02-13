@@ -12,6 +12,13 @@
 # include 	<errno.h>
 
 
+# define NUMBER   "insufficient Number of arguments.\n"
+# define CMD   "command not found : "
+# define PIPE   "Pipe"
+# define FILE  "INFILE"
+
+
+
 
 
 typedef struct s_data
@@ -31,7 +38,7 @@ typedef struct s_data
 /* **************************************************** */
 
 int     main(int ac, char *av[], char *envp[]);
-void    *path_handling(t_data *pipex, char **envp);
+char  *path_handling(char **path, char *cmd);
 
 
 /* **************************************************** */
@@ -42,15 +49,16 @@ void    *path_handling(t_data *pipex, char **envp);
  char	**ft_split(char const *s, char c);
  void   ft_putstr_fd(char *s, int fd);
  char   *ft_strdup(const char *src);
- void   ft_error(void);
+ void   ft_error(char *str);
+ int    err_msg(char *str);
 
 
 /* **************************************************** */
 /*                   The child file                     */
 /* **************************************************** */
 
-void child_process1(t_data *pipex, char *av[], char **envp);
-void child_process2(t_data *pipex, char *av[], char **envp);
+void child_process1(t_data *pipex, char *av[], char *envp[]);
+void child_process2(t_data *pipex, char *av[], char *envp[]);
 
 
 

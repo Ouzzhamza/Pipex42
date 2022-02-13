@@ -1,6 +1,6 @@
 CC = gcc 
 
-CFLAGS = -Wall -Wextra -Werror -Imlx -Ofast
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = pipex
 
@@ -11,8 +11,8 @@ OBJ = $(SRC:%.c=%.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@make -C ../libft
-	@$(CC) $(OBJ) ../libft/libft.a -o $(NAME)
+	@make -C ./libft
+	@$(CC) $(OBJ) ./libft/libft.a -o $(NAME) 
 	@echo "\n$(GREEN) $(BOLD)Your programme is ready to run$(END)\n"
 	
 
@@ -22,7 +22,7 @@ $(NAME) : $(OBJ)
 bonus : all
 
 clean :
-	@make fclean -C ../libft 
+	@make fclean -C ./libft 
 	@rm -rf $(OBJ)  outfile
 
 fclean : clean
