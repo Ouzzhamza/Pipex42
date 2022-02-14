@@ -27,7 +27,7 @@ int main(int ac, char *av[], char **envp)
 		ft_error(PIPE);
 	pipex->infile = open(av[1], O_RDWR);  // in case o f the first file doesn't exist i should return error 
 	pipex->outfile = open(av[4], O_RDWR |O_CREAT, 0666);
-	if(pipex->infile < 0 | pipex->outfile < 0)
+	if ((pipex->infile < 0) | (pipex->outfile < 0))
 		ft_error(FILE);
 	while (ft_strncmp("PATH", *envp, 4))
 		envp++;

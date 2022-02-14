@@ -18,7 +18,9 @@ int	ft_wor(char *r_s, char c, size_t size)
 	int	i;
 
 	i = 0;
-	word = 1;
+	word = 0;
+	if(r_s[i] != c && r_s[i] != '\0')
+		word++;
 	if (r_s[i] != c && r_s[size - 1] == c)
 		word++;
 	while (r_s[i])
