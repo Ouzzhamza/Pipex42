@@ -12,21 +12,6 @@
 
 #include "pipex.h"
 
-/* **************************************************** */
-/*                     The error                        */
-/* **************************************************** */
-
-void	ft_error(char *str)
-{
-	perror(str);
-	exit(1);
-}
-
-int err_msg(char *str)
-{
-	ft_putstr_fd(str, 2);
-	return(1);
-}
 
 /* **************************************************** */
 /*                      The main                        */
@@ -35,7 +20,6 @@ int main(int ac, char *av[], char **envp)
 {
 	t_data *pipex;
 	int id;
-
 	pipex = (t_data *) malloc(sizeof(t_data));
 	if(ac != 5)
 		return (err_msg(NUMBER));
@@ -51,10 +35,12 @@ int main(int ac, char *av[], char **envp)
 	pipex->cmd_path = ft_split(pipex->path, ':');
 	id = fork();
 	if (id == 0)
-		child_process1(pipex, av, envp);
-	id = fork();
-	if(id == 0)
-		child_process2(pipex, av, envp);
+		child_process(pipex, av, envp);
+	else
+	{
+		waitpid(0, NULL, 0);
+		parent_process(pipex, av, envp);
+	}
 	return(0);
 }
 	

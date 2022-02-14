@@ -57,9 +57,16 @@ char  *path_handling(char **path, char *cmd);
 /*                   The child file                     */
 /* **************************************************** */
 
-void child_process1(t_data *pipex, char *av[], char *envp[]);
-void child_process2(t_data *pipex, char *av[], char *envp[]);
+void child_process(t_data *pipex, char *av[], char *envp[]);
+void parent_process(t_data *pipex, char *av[], char *envp[]);
 
+
+/* **************************************************** */
+/*                   free functions                     */
+/* **************************************************** */
+
+
+void    ft_free(t_data *pipex);
 
 
 

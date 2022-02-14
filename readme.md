@@ -3,7 +3,7 @@
 Pipex is a 42school project that reproduces the same behaviour as the command shell pipe **|** , the programme will lunch as  **./pipex file1 cmd1 cmd2 file2** and behave exactely as as this shell command line **< infile cmd1 | cmd2 > outfile**.
 
 This programme will be written in C language, using the following functions : 
- access(), open(), unlink(), close(), read(), write(), malloc(), waitpid(), wait(), free(), pipe(), dup(), dup2(), execve(), fork(), perror(), strerror() and exit().
+ access( ), open( ), unlink( ), close( ), read( ), write( ), malloc( ), waitpid( ), wait( ), free( ), pipe( ), dup( ), dup2( ), execve( ), fork( ), perror( ), strerror( ) and exit( ).
 
 ## Description 
 
@@ -105,14 +105,21 @@ int main(int argc, char *argv[])
 
 ```
 
-### [waitpid( )](https://techaccess.in/2021/05/07/wait-and-waitpid-api/#:~:text=Difference%20between%20wait%20and%20waitpid()%3A&text=Wait()%20waits%20for%20any,terminated%20or%20a%20signaled%20child.)
+### [waitpid( )](https://techaccess.in/2021/05/07/wait-and-waitpid-api/)
 
 Prototype : 
 ```c
 pid_t  waitpid(pid_t pid, int *stat_loc, int options);
 ```
 
-Waitpid() waits for a specific child equal to pid (given as paranmetre) to terminate.
+Waitpid() waits for a specific child equal to pid (given as paranmetre) to terminate. {need more explian}
+
+>pid_t pid : Refers to the process ID on wiche **waitpid( )** should operate.
+
+>int *static_loc : Pointer to an area where status information about how the child process ended is to be placed.
+
+>int options : An integer field containing flags that define how **waitpid( )** should operate
+
 
 ### [pipe( )](https://linuxhint.com/using_pipe_function_c_language/)
   Prototype :

@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = pipex
 
-SRC = pipex.c childs_process.c 
+SRC = pipex.c processes.c errors.c free.c
 
 OBJ = $(SRC:%.c=%.o)
 
