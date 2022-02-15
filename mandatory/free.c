@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 20:50:15 by houazzan          #+#    #+#             */
-/*   Updated: 2021/11/15 18:10:51 by houazzan         ###   ########.fr       */
+/*   Created: 2022/02/15 19:45:46 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/15 19:50:29 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include    "pipex.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_free(t_data *pipex)
 {
-	void	*ptr;
+	int	i;
 
-	ptr = (void *)malloc(count * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, (count * size));
-	return (ptr);
+	i = 0;
+
+	while (pipex->cmd_args[i])
+	{
+		free(pipex->cmd_args[i]);
+		i++;
+	}
+	free(pipex->cmd_path);
+	free(pipex->cmd);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:55:59 by houazzan          #+#    #+#             */
-/*   Updated: 2021/11/07 11:12:59 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/15 19:48:43 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../mandatory/pipex.h"
 
 char	*ft_strchr(const char *s, int c)
 {

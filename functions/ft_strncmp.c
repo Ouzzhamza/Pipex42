@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:53:23 by houazzan          #+#    #+#             */
-/*   Updated: 2021/11/15 20:17:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/15 19:48:58 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../mandatory/pipex.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

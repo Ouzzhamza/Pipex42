@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houazzan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:55:15 by houazzan          #+#    #+#             */
-/*   Updated: 2021/11/15 17:51:59 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/15 19:48:10 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../mandatory/pipex.h"
 
 void	ft_bzero(void *s, size_t n)
 {
