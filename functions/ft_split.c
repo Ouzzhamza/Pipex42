@@ -6,11 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:54:36 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 11:54:17 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:35:41 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/pipex.h"
+#include "../bonus/pipex_bonus.h"
 
 int	ft_wor(char *r_s, char c, size_t size)
 {

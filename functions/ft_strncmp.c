@@ -6,11 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:53:23 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/15 19:48:58 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:57:34 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/pipex.h"
+#include "../bonus/pipex_bonus.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:51:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 15:11:40 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:55:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define FILE  "infile"
 # define PATH "no path available"
 
-typedef struct s_data
+typedef struct s_bdata
 {
 	int		infile;
 	int		outfile;
@@ -37,9 +37,9 @@ typedef struct s_data
 	char	*cmd;
 	char	**cmd_args;
 	char	**cmd_path;
-}	t_data;
+}	t_bdata;
 
-char	*path_handling(char **path, char *cmd);
+char	*path_handling_bonus(char **path, char *cmd);
 
 /* **************************************************** */
 /*                   Functions                          */
@@ -59,15 +59,15 @@ size_t	ft_strlen(const char *c);
 /*                   The child file                     */
 /* **************************************************** */
 
-void	child_process(t_data *pipex, char *av[], char *envp[]);
-void	parent_process(t_data *pipex, char *av[], char *envp[]);
+void	child_process_bonus(t_bdata *pipex, char *av[], char *envp[]);
+void	parent_process_bonus(t_bdata *pipex, char *av[], char *envp[]);
 
 /* **************************************************** */
 /*              free & error functions                  */
 /* **************************************************** */
 
-void	ft_free(t_data *pipex);
-void	ft_error(t_data *pipex, char *str);
-int		err_msg(t_data *pipex, char *str);
+void	ft_free_bonus(t_bdata *pipex);
+void	ft_error_bonus(t_bdata *pipex, char *str);
+int		err_msg_bonus(t_bdata *pipex, char *str);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:55:59 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/15 19:48:43 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:35:44 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/pipex.h"
+#include "../bonus/pipex_bonus.h"
 
 char	*ft_strchr(const char *s, int c)
 {
