@@ -29,7 +29,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ_F) $(OBJ_M)
 		$(CC) $(OBJ_F) $(OBJ_M) -o $(NAME) 
-		@echo "$(GREEN) $(BOLD)DONE $(END)"
+		@echo "$(GREEN)$(BOLD)CREATED! $(END)"
 	
 %.o :%.c pipex.h 
 	 @$(CC) $(CFLAGS) -c $<
@@ -38,10 +38,11 @@ $(NAME) : $(OBJ_F) $(OBJ_M)
 
 clean :
 	 rm -rf $(OBJ_M) $(OBJ_F) outfile
+	 @echo "$(BOLD)$(ORANGE)OBJECT FILE DELETED !$(END)"
 
 fclean : clean
 	  rm -rf $(NAME)
-	  @echo "$(BOLD)$(RED)DONE$(END)"
+	  @echo "$(BOLD)$(RED)ALL DELETED !$(END)"
 
 re : fclean all
 
@@ -53,3 +54,4 @@ re : fclean all
 
 GREEN = \033[1;32m
 RED = \033[1;31m
+ORANGE = \033[0;33m

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 14:51:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 15:11:30 by houazzan         ###   ########.fr       */
+/*   Created: 2022/02/16 14:51:22 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/16 15:11:40 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include	<stdio.h>
 # include	<stdlib.h>
@@ -21,10 +21,6 @@
 # include	<sys/types.h>
 # include   <fcntl.h>
 # include   <errno.h>
-
-/* **************************************************** */
-/*                  error messages                      */
-/* **************************************************** */
 
 # define NUMBER   "insufficient Number of arguments.\n"
 # define CMD   "command not found : "
