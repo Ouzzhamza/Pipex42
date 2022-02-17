@@ -7,7 +7,7 @@ CFLAGS   = -Wall -Wextra -Werror
 
 #FILES AND PATHES
 NAME     = pipex
-BNAME    = bonus_pipex
+BNAME    = pipex_bonus
 
 
 #functions
@@ -15,6 +15,7 @@ FSRC_DIR = functions/
 FSRC 	 = ft_bzero.c ft_calloc.c ft_putstr_fd.c ft_split.c \
 		   ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
 		   ft_strncmp.c 
+
 FSPATH   = $(addprefix $(FSRC_DIR), $(FSRC))
 OBJ_F    = $(FSPATH:%.c=%.o)
 
@@ -26,7 +27,9 @@ OBJ_M    = $(MSPATH:%.c=%.o)
 
 #bonus
 BSRC_DIR = bonus/
-BSRC     = pipex_bonus.c processes_bonus.c errors_bonus.c free_bonus.c
+BSRC     = pipex_bonus.c processes_bonus.c errors_bonus.c \
+		   free_bonus.c get_next_line.c bonus_type.c\
+
 BSPATH   = $(addprefix $(BSRC_DIR), $(BSRC))
 OBJ_B    = $(BSPATH:%.c=%.o)
 
