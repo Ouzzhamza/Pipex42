@@ -6,12 +6,12 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:55:15 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 21:58:51 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:21:29 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/pipex.h"
-#include "../bonus/pipex_bonus.h"
+#include "../bonus/bonus_pipex.h"
 
 void	ft_bzero(void *s, size_t n)
 {

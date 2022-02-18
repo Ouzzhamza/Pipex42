@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:59 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 14:38:02 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:34:28 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*path_handling(char **path, char *cmd)
 
 void	child_process(t_data *pipex, char *av[], char **envp)
 {
+	pipex->cmd_args = NULL;
 	dup2(pipex->infile, STDIN_FILENO);
 	dup2(pipex->end[1], STDOUT_FILENO);
 	close(pipex->end[0]);

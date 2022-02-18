@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_bonus.c                                       :+:      :+:    :+:   */
+/*   bonus_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 20:02:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/17 19:35:03 by houazzan         ###   ########.fr       */
+/*   Created: 2022/02/15 19:45:46 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/18 20:33:44 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include    "bonus_pipex.h"
 
-void	ft_free_bonus(t_bdata *pipex)
+void	ft_free_bonus(t_bonus *pipex)
 {
 	free(pipex);
 }

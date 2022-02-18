@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_bonus.c                                     :+:      :+:    :+:   */
+/*   bonus_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 19:59:06 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/16 21:28:23 by houazzan         ###   ########.fr       */
+/*   Created: 2022/02/18 17:45:47 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/18 20:34:27 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include    "bonus_pipex.h"
 
-/* **************************************************** */
-/*                   ft_error_bonus                     */
-/* **************************************************** */
-
-void	ft_error_bonus(t_bdata *pipex, char *str)
+void	ft_error_bonus(t_bonus *pipex, char *str)
 {
 	perror(str);
 	ft_free_bonus(pipex);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 /* **************************************************** */
 /*                     msg_error                        */
 /* **************************************************** */
 
-int	err_msg_bonus(t_bdata *pipex, char *str)
+int	err_msg_bonus(t_bonus *pipex, char *str)
 {
 	ft_putstr_fd(str, 2);
 	ft_free_bonus(pipex);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

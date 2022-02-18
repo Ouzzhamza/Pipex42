@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_type.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 11:17:49 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/17 18:00:56 by houazzan         ###   ########.fr       */
+/*   Created: 2022/02/18 12:46:39 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/18 19:21:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "../bonus/pipex_bonus.h"
+#include "../mandatory/pipex.h"
+#include "../bonus/bonus_pipex.h"
 
-int	type(char **av, t_bdata *pipex)
+int	ft_strcmp(char *str1, char *str2)
 {
-	if (strncmp("here_doc", av[1], 9) == 0)
-	{
-		pipex->type = 2;
-		return (6);
-	}
-	else
-	{
-		pipex->type = 1;
-		return (5);
-	}
-}
+	int	i;
 
-void	file_type(char **av, t_bdata *pipex)
-{
-	if (pipex->type == 2)
-		her_doc(av, pipex);
-	else
+	i = 0;
+	while (str1[i] && str2[i])
 	{
-		pipex->infile = open(av[1], O_RDWR);
-		if (pipex->infile < 0)
-			ft_error_bonus(pipex, FILE);
-	}		
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (str1[i] - str2[i]);
 }
