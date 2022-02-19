@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 12:46:39 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 00:30:33 by houazzan         ###   ########.fr       */
+/*   Created: 2021/12/01 23:03:22 by houazzan          #+#    #+#             */
+/*   Updated: 2022/02/19 23:20:18 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mandatory/pipex.h"
 #include "../bonus/bonus_pipex.h"
 
-int	ft_strcmp(char *str1, char *str2)
+char	*get_next_line(int fd)
 {
-	int	i;
+	char	line[800000];
+	char	buff[1];
+	int		i;
+	int		j;
 
 	i = 0;
-	while (str1[i] && str2[i] && str1[i] == str2[i]) 
+	j = 0;
+	while (i > 0)
 	{
-		i++;
+		i = read (fd, buff, 1);
+		if (buff[0] == '\n')
+			break ;
+		line[j++] = buff[0];
 	}
-	return (str1[i] - str2[i]);
+	line[j++] = '\0';
+	return (ft_strdup(line));
 }

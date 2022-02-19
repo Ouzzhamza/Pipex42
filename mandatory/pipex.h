@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:51:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/18 20:33:31 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/19 23:52:27 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 /* **************************************************** */
 
 # define NUMBER   "insufficient Number of arguments.\n"
-# define CMD   "command not found : "
+# define CMD   "command not found : \n"
 # define PIPE   "Pipe"
 # define FILE  "infile"
 # define PATH "no path available"

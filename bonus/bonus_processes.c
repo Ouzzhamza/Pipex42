@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:32:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/18 21:25:39 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:21:43 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ char	*path_handling(char **path, char *cmd)
 
 void	child_bprocess(t_bonus *pipex, char *av[], char **envp)
 {
-	printf("==here==\n");
 	dup2(pipex->end[1], STDOUT_FILENO);
 	close(pipex->end[0]);
-	pipex->cmd_args = ft_split(av[2], ' ');
+	pipex->cmd_args = ft_split(av[pipex->j], ' ');
 	if (pipex->cmd_args[0] == NULL)
 		err_msg_bonus(pipex, CMD);
+	pipex->path = path_tracking_bonus(envp);
+	if (pipex->path == NULL)
+		err_msg_bonus(pipex, PATH);
+	pipex->cmd_path = ft_split(pipex->path, ':');
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{
@@ -49,16 +52,17 @@ void	child_bprocess(t_bonus *pipex, char *av[], char **envp)
 	execve(pipex->cmd, pipex->cmd_args, envp);
 }
 
-
-void	parent_bprocess(t_bonus *pipex, char *av[], char **envp)
+void	parent_bprocess(t_bonus *pipex, char *av[], char **envp, int argc)
 {
 	pipex->cmd_args = NULL;
 	dup2(pipex->outfile, STDOUT_FILENO);
-	dup2(pipex->end[0], STDIN_FILENO);
-	close(pipex->end[1]);
-	pipex->cmd_args = ft_split(av[3], ' ');
+	pipex->cmd_args = ft_split(av[argc - 2], ' ');
 	if (pipex->cmd_args[0] == NULL)
 		err_msg_bonus(pipex, CMD);
+	pipex->path = path_tracking_bonus(envp);
+	if (pipex->path == NULL)
+		err_msg_bonus(pipex, PATH);
+	pipex->cmd_path = ft_split(pipex->path, ':');
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{
