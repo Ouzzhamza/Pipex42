@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:03:22 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/19 23:20:18 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:31:51 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 
 char	*get_next_line(int fd)
 {
-	char	line[800000];
-	char	buff[1];
+	char	str[8000000];
 	int		i;
-	int		j;
+	char	buff[1];
+	int		byte;
 
+	byte = read(fd, buff, 1);
 	i = 0;
-	j = 0;
-	while (i > 0)
+	if (fd < 0)
 	{
-		i = read (fd, buff, 1);
+		return (NULL);
+	}
+	while (byte > 0)
+	{
 		if (buff[0] == '\n')
 			break ;
-		line[j++] = buff[0];
+		str[i++] = buff[0];
+		byte = read(fd, buff, 1);
 	}
-	line[j++] = '\0';
-	return (ft_strdup(line));
+	str[i] = '\0';
+	if (str[0] == '\0')
+		return (0);
+	return (ft_strdup(str));
 }

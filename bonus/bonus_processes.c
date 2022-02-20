@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:32:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 00:21:43 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:29:48 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*path_handling(char **path, char *cmd)
 		temp = ft_strjoin(*path, "/");
 		command = ft_strjoin(temp, cmd);
 		free(temp);
-		if (access(command, X_OK) == 0 )
+		if (access(command, X_OK) == 0)
 			return (command);
 		free(command);
 		path++;

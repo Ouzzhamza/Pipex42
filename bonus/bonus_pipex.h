@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:25:33 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 00:36:05 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:31:03 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 # include   <fcntl.h>
 # include   <errno.h> 
 
-# define NUMBER   "insufficient Number of arguments.\n"
-# define CMD   "command not found : \n"
-# define PIPE   "Pipe"
-# define FILE  "infile"
-# define PATH "no path available"
+# define NUMBER		"insufficient Number of arguments.\n"
+# define ARG		"please check the argument. \n"
+# define CMD		"command not found : \n"
+# define PIPE		"Pipe"
+# define FILE		"infile"
+# define PATH		"no path available"
 
 typedef struct s_bonus
 {
@@ -49,7 +50,7 @@ char	*ft_strdup(const char *src);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *c);
-int	ft_strcmp(char *str1, char *str2);
+int		ft_strcmp(char *str1, char *str2);
 
 void	ft_error_bonus(t_bonus *pipex, char *str);
 int		err_msg_bonus(t_bonus *pipex, char *str);

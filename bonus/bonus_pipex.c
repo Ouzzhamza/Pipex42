@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:20:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 00:35:19 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:28:50 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,18 @@ char	*path_tracking_bonus(char **envp)
 
 void	bonus_type(t_bonus *pipex, char *av)
 {
-	if (strcmp("her_doc", av) == 0)
+	if (strcmp("here_doc", av) == 0)
 	{
 		pipex->type = 1;
 		pipex->j = 3;
 	}
-	else
+	else if (strcmp("infile", av) == 0)
 	{
 		pipex->type = 2;
 		pipex->j = 4;
 	}
+	else
+		err_msg_bonus(pipex, ARG);
 }
 
 void	create_pipes(t_bonus *pipex, int argc, char *argv[], char **envp)
@@ -52,7 +54,6 @@ void	create_pipes(t_bonus *pipex, int argc, char *argv[], char **envp)
 		}
 		else
 		{
-			waitpid(0, NULL, 0);
 			close(pipex->end[1]);
 			dup2(pipex->end[0], STDIN_FILENO);
 		}
@@ -69,13 +70,13 @@ int	main(int argc, char *argv[], char **envp)
 	if (argc < 5)
 		err_msg_bonus(pipex, NUMBER);
 	bonus_type(pipex, argv[1]);
-	if(pipex->type == 2)
+	if (pipex->type == 2)
 		pipex->infile = open(argv[1], O_RDWR);
 	pipex->outfile = open(argv[argc - 1], O_TRUNC | O_RDWR | O_CREAT, 0666);
 	if (pipex->outfile < 0)
 		ft_error_bonus(pipex, FILE);
-	dup2(pipex->infile, STDIN_FILENO);
 	if (pipex->type == 1)
 		her_doc(pipex, argv[2]);
+	dup2(pipex->infile, STDIN_FILENO);
 	create_pipes(pipex, argc, argv, envp);
 }

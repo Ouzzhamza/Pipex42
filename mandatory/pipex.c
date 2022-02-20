@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:35 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/19 22:45:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:30:31 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char *av[], char **envp)
 
 	pipex = (t_data *) malloc(sizeof(t_data));
 	if (ac != 5)
-		return (err_msg(pipex ,NUMBER));
+		return (err_msg(pipex, NUMBER));
 	if (pipe(pipex->end) == -1)
 		ft_error(pipex, PIPE);
 	pipex->infile = open(av[1], O_RDWR);
@@ -49,9 +49,6 @@ int	main(int ac, char *av[], char **envp)
 	if (id == 0)
 		child_process(pipex, av, envp);
 	else
-	{
-		waitpid(0, NULL, WNOHANG);
 		parent_process(pipex, av, envp);
-	}
 	return (0);
 }

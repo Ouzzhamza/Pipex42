@@ -53,7 +53,7 @@ $(BNAME) : $(OBJ_F) $(OBJ_B)
 
 
 clean    :
-	     rm -rf $(OBJ_M) $(OBJ_B) $(OBJ_F) outfile
+	     rm -rf $(OBJ_M) $(OBJ_B) $(OBJ_F) outfile .temp
 	     @echo "$(BOLD)$(ORANGE)OBJECT FILE DELETED !$(END)"
 
 fclean   : clean
