@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:32:43 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 17:29:48 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 21:42:20 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	child_bprocess(t_bonus *pipex, char *av[], char **envp)
 	if (pipex->cmd_args[0] == NULL)
 		err_msg_bonus(pipex, CMD);
 	pipex->path = path_tracking_bonus(envp);
-	if (pipex->path == NULL)
-		err_msg_bonus(pipex, PATH);
 	pipex->cmd_path = ft_split(pipex->path, ':');
+	if (pipex->path == NULL | pipex->cmd_path == NULL)
+		err_msg_bonus(pipex, PATH);
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{
@@ -60,9 +60,9 @@ void	parent_bprocess(t_bonus *pipex, char *av[], char **envp, int argc)
 	if (pipex->cmd_args[0] == NULL)
 		err_msg_bonus(pipex, CMD);
 	pipex->path = path_tracking_bonus(envp);
-	if (pipex->path == NULL)
-		err_msg_bonus(pipex, PATH);
 	pipex->cmd_path = ft_split(pipex->path, ':');
+	if (pipex->path == NULL | pipex->cmd_path == NULL)
+		err_msg_bonus(pipex, PATH);
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{

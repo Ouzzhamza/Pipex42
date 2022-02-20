@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:35 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 17:30:31 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/20 21:43:23 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	main(int ac, char *av[], char **envp)
 	if (pipex->infile < 0 | pipex->outfile < 0)
 		ft_error(pipex, FILE);
 	pipex->path = path_tracking(envp);
-	if (pipex->path == NULL)
-		err_msg(pipex, PATH);
 	pipex->cmd_path = ft_split(pipex->path, ':');
+	if (pipex->path == NULL | pipex->cmd_path == NULL)
+		err_msg(pipex, PATH);
 	id = fork();
 	if (id == 0)
 		child_process(pipex, av, envp);
