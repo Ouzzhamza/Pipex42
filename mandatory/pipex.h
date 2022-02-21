@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:51:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/19 23:52:27 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:29:14 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include   <errno.h>
 
 /* **************************************************** */
-/*                  error messages                      */
+/*             🅴🆁🆁🅾🆁 🅼🅴🆂🆂🅰🅶🅴🆂                  */
 /* **************************************************** */
 
 # define NUMBER   "insufficient Number of arguments.\n"
@@ -36,6 +36,8 @@ typedef struct s_data
 {
 	int		infile;
 	int		outfile;
+	int		id;
+	int		id2;
 	int		end[2];
 	char	*path;
 	char	*cmd;
@@ -46,7 +48,7 @@ typedef struct s_data
 char	*path_handling(char **path, char *cmd);
 
 /* **************************************************** */
-/*                   Functions                          */
+/*                 🅵🆄🅽🅲🆃🅸🅾🅽🆂                      */
 /* **************************************************** */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -60,14 +62,14 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *c);
 
 /* **************************************************** */
-/*                   The child file                     */
+/*                   🅿🆁🅾🅲🅴🆂🆂🅴🆂                    */
 /* **************************************************** */
 
 void	child_process(t_data *pipex, char *av[], char *envp[]);
 void	parent_process(t_data *pipex, char *av[], char *envp[]);
 
 /* **************************************************** */
-/*              free & error functions                  */
+/*        🅵🆁🅴🅴 & 🅴🆁🆁🅾🆁 🅵🆄🅽🅲🆃🅸🅾🅽🆂            */
 /* **************************************************** */
 
 void	ft_free(t_data *pipex);

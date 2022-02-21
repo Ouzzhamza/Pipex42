@@ -6,11 +6,15 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:20:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/20 17:28:50 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/21 17:12:08 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus_pipex.h"
+
+/* **************************************************** */
+/*           🅿🅰🆃🅷_🆃🆁🅰🅲🅺🅸🅽🅶_🅱🅾🅽🆄🆂             */
+/* **************************************************** */
 
 char	*path_tracking_bonus(char **envp)
 {
@@ -23,15 +27,21 @@ char	*path_tracking_bonus(char **envp)
 	return (NULL);
 }
 
+/* **************************************************** */
+/*                  🅱🅾🅽🆄🆂_🆃🆈🅿🅴                    */
+/* **************************************************** */
+
 void	bonus_type(t_bonus *pipex, char *av)
 {
 	if (strcmp("here_doc", av) == 0)
 	{
+		dup2(pipex->infile, STDIN_FILENO);
 		pipex->type = 1;
 		pipex->j = 3;
 	}
 	else if (strcmp("infile", av) == 0)
 	{
+		dup2(pipex->infile, STDIN_FILENO);
 		pipex->type = 2;
 		pipex->j = 4;
 	}
@@ -39,19 +49,19 @@ void	bonus_type(t_bonus *pipex, char *av)
 		err_msg_bonus(pipex, ARG);
 }
 
+/* **************************************************** */
+/*                🅲🆁🅴🅰🆃🅴_🅿🅸🅿🅴🆂                   */
+/* **************************************************** */
+
 void	create_pipes(t_bonus *pipex, int argc, char *argv[], char **envp)
 {
-	int	id;
-
 	while (pipex->j < argc - 2)
 	{
 		if (pipe(pipex->end) == -1)
 			err_msg_bonus(pipex, PIPE);
-		id = fork();
-		if (id == 0)
-		{
+		pipex->id = fork();
+		if (pipex->id == 0)
 			child_bprocess(pipex, argv, envp);
-		}
 		else
 		{
 			close(pipex->end[1]);
@@ -61,6 +71,10 @@ void	create_pipes(t_bonus *pipex, int argc, char *argv[], char **envp)
 	}
 	parent_bprocess(pipex, argv, envp, argc);
 }
+
+/* **************************************************** */
+/*                    🆃🅷🅴 🅼🅰🅸🅽                     */
+/* **************************************************** */
 
 int	main(int argc, char *argv[], char **envp)
 {
@@ -76,7 +90,7 @@ int	main(int argc, char *argv[], char **envp)
 	if (pipex->outfile < 0)
 		ft_error_bonus(pipex, FILE);
 	if (pipex->type == 1)
-		her_doc(pipex, argv[2]);
-	dup2(pipex->infile, STDIN_FILENO);
+		her_doc(argv[2]);
+	pipex->id = fork();
 	create_pipes(pipex, argc, argv, envp);
 }

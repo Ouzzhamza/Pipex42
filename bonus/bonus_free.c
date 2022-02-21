@@ -6,13 +6,27 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:45:46 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/18 20:33:44 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:33:05 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "bonus_pipex.h"
 
+/* **************************************************** */
+/*                🅵🆃_🅵🆁🅴🅴_🅱🅾🅽🆄🆂                  */
+/* **************************************************** */
+
 void	ft_free_bonus(t_bonus *pipex)
-{
-	free(pipex);
+{	
+	int	i;
+
+	i = 0;
+	close(pipex->infile);
+	close(pipex->outfile);
+	while (pipex->cmd_path[i])
+	{
+		free(pipex->cmd_path[i]);
+		i++;
+	}
+	free(pipex->cmd_path);
 }
