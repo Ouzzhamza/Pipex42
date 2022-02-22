@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:46 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 11:09:21 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:03:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	ft_error(t_data *pipex, char *str)
 {
-	perror(str);
+	ft_putstr_fd(str, 2);
 	ft_free(pipex);
 	exit(EXIT_FAILURE);
 }
@@ -27,9 +27,8 @@ void	ft_error(t_data *pipex, char *str)
 /*                   🅼🆂🅶_🅴🆁🆁🅾🆁                     */
 /* **************************************************** */
 
-int	err_msg(t_data *pipex, char *str)
+void	err_msg(char *str)
 {
 	ft_putstr_fd(str, 2);
-	ft_free(pipex);
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:25:33 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 17:12:28 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/22 22:50:52 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@
 /*             🅴🆁🆁🅾🆁 🅼🅴🆂🆂🅰🅶🅴🆂                  */
 /* **************************************************** */
 
-# define NUMBER		"insufficient Number of arguments.\n"
-# define ARG		"please check the argument. \n"
-# define CMD		"command not found : \n"
-# define PIPE		"Pipe"
-# define FILE		"infile"
-# define PATH		"no path available"
+# define NUMBER   "Number of arguments is wrong.\n"
+# define CMD   "Command not found.\n"
+# define CMD1   "Command not valid to execute.\n"
+# define PIPE   "Pipe problem.\n"
+# define FILE  "Please check the existence of files or their permissions.\n"
+# define PATH "No path available.\n"
+//# define ARG ".\n"
 
 typedef struct s_bonus
 {
@@ -40,12 +41,13 @@ typedef struct s_bonus
 	int		end[2];
 	int		type;
 	int		id;
-	int		id2;
+	int		ncmd;
+	int		and;
+	int		h_d;
 	char	*path;
 	char	*cmd;
 	char	**cmd_args;
 	char	**cmd_path;
-	int		j;
 
 }	t_bonus;
 
@@ -67,7 +69,7 @@ int		ft_strcmp(char *str1, char *str2);
 /* **************************************************** */
 
 void	ft_error_bonus(t_bonus *pipex, char *str);
-int		err_msg_bonus(t_bonus *pipex, char *str);
+void	err_msg_bonus(char *str);
 void	ft_free_bonus(t_bonus *pipex);
 
 /* **************************************************** */
@@ -76,8 +78,8 @@ void	ft_free_bonus(t_bonus *pipex);
 
 void	child_bprocess(t_bonus *pipex, char *av[], char **envp);
 void	parent_bprocess(t_bonus *pipex, char *av[], char **envp, int argc);
-void	create_pipes(t_bonus *pipex, int argc, char *argv[], char **envp);
+void	create_pipes(t_bonus *pipex);
 char	*path_tracking_bonus(char **envp);
-void	her_doc(char *argv);
+void	her_doc(t_bonus *pipex, char *argv);
 
 #endif

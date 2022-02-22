@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:35 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 16:34:59 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/22 19:54:30 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ int	main(int ac, char *av[], char **envp)
 	t_data	*pipex;
 	pipex = (t_data *) malloc(sizeof(t_data));
 	if (ac != 5)
-		return (err_msg(pipex, NUMBER));
+		err_msg(NUMBER);
 	if (pipe(pipex->end) == -1)
-		ft_error(pipex, PIPE);
+		err_msg(PIPE);
 	pipex->infile = open(av[1], O_RDWR);
 	pipex->outfile = open(av[4], O_TRUNC | O_RDWR | O_CREAT, 0666);
 	if (pipex->infile < 0 | pipex->outfile < 0)
-		ft_error(pipex, FILE);
+		err_msg(FILE);
 	pipex->path = path_tracking(envp);
 	pipex->cmd_path = ft_split(pipex->path, ':');
 	if (pipex->path == NULL | pipex->cmd_path == NULL)
-		err_msg(pipex, PATH);
+		ft_error(pipex, PATH);
 	forking(pipex, av, envp);
 	close_pipes(pipex);
 	waitpid(pipex->id, NULL, 0);

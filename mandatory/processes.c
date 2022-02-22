@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:59 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 14:53:12 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/22 19:58:02 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	child_process(t_data *pipex, char *av[], char **envp)
 	close(pipex->end[0]);
 	pipex->cmd_args = ft_split(av[2], ' ');
 	if (pipex->cmd_args[0] == NULL)
-		err_msg(pipex, CMD);
+		ft_error(pipex, CMD);
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{
-		err_msg(pipex, ft_strjoin(CMD, pipex->cmd_args[0]));
+		ft_error(pipex, CMD1);
 		ft_putstr_fd("\n", 2);
 		ft_free(pipex);
 		exit(1);
@@ -70,11 +70,11 @@ void	parent_process(t_data *pipex, char *av[], char **envp)
 	close(pipex->end[1]);
 	pipex->cmd_args = ft_split(av[3], ' ');
 	if (pipex->cmd_args[0] == NULL)
-		err_msg(pipex, CMD);
+		ft_error(pipex, CMD);
 	pipex->cmd = path_handling(pipex->cmd_path, pipex->cmd_args[0]);
 	if (!pipex->cmd)
 	{
-		err_msg(pipex, ft_strjoin(CMD, pipex->cmd_args[0]));
+		ft_error(pipex, CMD1);
 		ft_putstr_fd("\n", 2);
 		ft_free(pipex);
 		exit(1);

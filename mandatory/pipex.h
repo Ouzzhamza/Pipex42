@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:51:11 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 16:29:14 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:09:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@
 /*             🅴🆁🆁🅾🆁 🅼🅴🆂🆂🅰🅶🅴🆂                  */
 /* **************************************************** */
 
-# define NUMBER   "insufficient Number of arguments.\n"
-# define CMD   "command not found : \n"
-# define PIPE   "Pipe"
-# define FILE  "infile"
-# define PATH "no path available"
+# define NUMBER   "Number of arguments is wrong.\n"
+# define CMD   "Command not found.\n"
+# define CMD1   "Command not valid to execute.\n"
+# define PIPE   "Pipe problem.\n"
+# define FILE  "Please check the existence of files or their permissions.\n"
+# define PATH "No path available.\n"
 
 typedef struct s_data
 {
@@ -74,6 +75,6 @@ void	parent_process(t_data *pipex, char *av[], char *envp[]);
 
 void	ft_free(t_data *pipex);
 void	ft_error(t_data *pipex, char *str);
-int		err_msg(t_data *pipex, char *str);
+void	err_msg(char *str);
 
 #endif
