@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:45:46 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/23 19:50:06 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:38:47 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_bonus(t_bonus *pipex)
 	i = 0;
 	close(pipex->infile);
 	close(pipex->outfile);
-	if (pipex->h_d)
+	if (pipex->h_d == 1)
 		unlink(".temp");
 	while (pipex->cmd_path[i])
 	{

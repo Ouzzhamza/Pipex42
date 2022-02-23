@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:20:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/23 20:20:46 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:38:59 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	close_pipes(t_bonus *pipex)
 void	call_process(t_bonus *pipex, char *argv[], char **envp)
 {
 	pipex->id = fork();
-	if (!pipex->id)
+	if (pipex->id == 0)
 	{
 		if (pipex->and == 0)
 		{
@@ -118,6 +118,10 @@ int	main(int argc, char *argv[], char **envp)
 	pipex->ncmd = argc - 3 - pipex->h_d;
 	if (pipex->type == 1)
 		her_doc(pipex, argv[2]);
+	pipex->path = path_tracking_bonus(envp);
+	pipex->cmd_path = ft_split(pipex->path, ':');
+	if (pipex->path == NULL | pipex->cmd_path == NULL)
+		ft_error_bonus(pipex, PATH);
 	pipex->end = (int *)malloc(sizeof(int) * (2 * (pipex->ncmd - 1)));
 	if (!pipex->end)
 		err_msg_bonus(PIPE);
@@ -128,5 +132,9 @@ int	main(int argc, char *argv[], char **envp)
 	close_pipes(pipex);
 	waitpid(-1, NULL, 0);
 	free_bonus(pipex);
+	//while (1);
 	return (0);
 }
+
+
+//the segfault cause is freeing the cmd.path in bonus free.
