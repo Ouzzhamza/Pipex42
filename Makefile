@@ -40,11 +40,11 @@ bonus    : $(BNAME)
 
 $(NAME)  : $(OBJ_F) $(OBJ_M)
 		 $(CC) $(OBJ_F) $(OBJ_M) -o $(NAME) 
-		 @echo "$(GREEN)$(BOLD)MANDATORY CREATED! $(END)"
+		 @echo "$(GREEN)$(BOLD)MANDATORY CREATED! $(RESET)"
 	
 $(BNAME) : $(OBJ_F) $(OBJ_B)
 		 $(CC) $(OBJ_F) $(OBJ_B) -o $(BNAME)
-		 @echo "$(GREEN)$(BOLD)BONUS CREATED! $(END)"
+		 @echo "$(GREEN)$(BOLD)BONUS CREATED! $(RESET)"
 
 
 %.o      :%.c pipex.h bonus_pipex.h
@@ -54,11 +54,11 @@ $(BNAME) : $(OBJ_F) $(OBJ_B)
 
 clean    :
 	     rm -rf $(OBJ_M) $(OBJ_B) $(OBJ_F) outfile .temp
-	     @echo "$(BOLD)$(ORANGE)OBJECT FILE DELETED !$(END)"
+	     @echo "$(BOLD)$(ORANGE)OBJECT FILE DELETED !$(RESET)"
 
 fclean   : clean
 	     rm -rf $(NAME) $(BNAME)
-	     @echo "$(BOLD)$(RED)ALL DELETED !$(END)"
+	     @echo "$(BOLD)$(RED)ALL DELETED !$(RESET)"
 
 re       : fclean all 
 
@@ -71,3 +71,4 @@ re       : fclean all
 GREEN = \033[1;32m
 RED = \033[1;31m
 ORANGE = \033[0;33m
+RESET = \033[0m

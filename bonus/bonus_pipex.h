@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:25:33 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/22 22:50:52 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:01:39 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@
 # define PIPE   "Pipe problem.\n"
 # define FILE  "Please check the existence of files or their permissions.\n"
 # define PATH "No path available.\n"
+# define ALLOCATION "Problem in allocing the structure.\n"
 //# define ARG ".\n"
 
 typedef struct s_bonus
 {
 	int		infile;
 	int		outfile;
-	int		end[2];
+	int		*end;
 	int		type;
 	int		id;
 	int		ncmd;
@@ -70,7 +71,8 @@ int		ft_strcmp(char *str1, char *str2);
 
 void	ft_error_bonus(t_bonus *pipex, char *str);
 void	err_msg_bonus(char *str);
-void	ft_free_bonus(t_bonus *pipex);
+void	free_bonus(t_bonus *pipex);
+void	free_pipes(t_bonus *pipex);
 
 /* **************************************************** */
 /*           🅿🆁🅾🅲🅴🆂🆂🅴🆂 🅰🅽🅳 🅴🆇🆃🆁🅰             */

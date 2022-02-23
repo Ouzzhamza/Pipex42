@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:45:47 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/21 21:43:53 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:20:38 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 void	ft_error_bonus(t_bonus *pipex, char *str)
 {
-	perror(str);
-	ft_free_bonus(pipex);
+	err_msg_bonus(str);
+	free_bonus(pipex);
 	exit(EXIT_FAILURE);
 }
 
@@ -29,6 +29,6 @@ void	ft_error_bonus(t_bonus *pipex, char *str)
 
 void	err_msg_bonus(char *str)
 {
-	ft_putstr_fd(str, 2);	
+	ft_putstr_fd(str, 2);
 	exit(EXIT_FAILURE);
 }

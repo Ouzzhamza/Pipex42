@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 22:51:12 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/22 16:58:02 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:59:39 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	her_doc(t_bonus *pipex, char *argv)
 	int		fd;
 	char	*buff;
 
-	fd = open(".temp", O_CREAT | O_RDWR | O_TRUNC, 00777);
+	fd = open(".temp", O_CREAT | O_RDWR | O_TRUNC, 0666);
 	while (1)
 	{
 		write(1, "here_doc>", 9);

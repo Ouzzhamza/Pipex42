@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:47:35 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/22 19:54:30 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:21:17 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	forking(t_data *pipex, char *av[], char **envp)
 int	main(int ac, char *av[], char **envp)
 {
 	t_data	*pipex;
+
 	pipex = (t_data *) malloc(sizeof(t_data));
 	if (ac != 5)
 		err_msg(NUMBER);
