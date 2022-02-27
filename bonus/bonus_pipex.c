@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:20:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/02/23 20:38:59 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:49:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	bonus_type(t_bonus *pipex, char **av, int argc)
 	if (strcmp("here_doc", av[1]) == 0)
 	{
 		pipex->outfile = open(av[argc -1], O_WRONLY | O_CREAT | O_APPEND, 0666);
-		pipex->infile = open(av[1], O_RDWR | O_CREAT, 0666);
 		pipex->type = 1;
 		pipex->h_d = 1;
 		if (pipex->infile < 0 | pipex->outfile < 0)
@@ -132,9 +131,5 @@ int	main(int argc, char *argv[], char **envp)
 	close_pipes(pipex);
 	waitpid(-1, NULL, 0);
 	free_bonus(pipex);
-	//while (1);
 	return (0);
 }
-
-
-//the segfault cause is freeing the cmd.path in bonus free.
