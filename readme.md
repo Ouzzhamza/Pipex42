@@ -13,9 +13,10 @@ This programme will be written in C language, using the following functions :
 
 
 ### Commands 
-
+```
 make mandatory = launch mandatory project 
 make bonus 	   = launch bonus project
+```
 
 
 ## Description 
