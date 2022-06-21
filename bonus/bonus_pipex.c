@@ -6,7 +6,7 @@
 /*   By: houazzan <houazzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:20:51 by houazzan          #+#    #+#             */
-/*   Updated: 2022/06/21 13:47:42 by houazzan         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:49:22 by houazzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,6 @@ void	call_process(t_bonus *pipex, char *argv[], char **envp)
 	pipex->id = fork();
 	if (pipex->id == 0)
 	{
-		int i = 0;
-		while (pipex->end[i])
-		{
-			fprintf(stdout, "pipex->end[%d] = %d\n", i, pipex->end[i]);
-			i++;
-		}
 		if (pipex->and == 0)
 		{
 			dup2(pipex->infile, STDIN_FILENO);
